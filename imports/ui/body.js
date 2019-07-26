@@ -16,20 +16,15 @@ Template.body.events({
     event.preventDefault();
 
     // Get value from form element
-    const target = event.target;
-    const text = target.text.value;
+
+    const text = event.target.text.value;
 
     // Insert a message into the collection
+    Meteor.call("sendMessage", text);
     
-    Messages.insert({
-      text,
-      createdAt: new Date(), // current time
-      owner: Meteor.userId(),
-      username: Meteor.user().username,
-    });
 
     // Clear form
-    target.text.value = '';
+    event.target.text.value = '';
 
     // scroll to last message
     $('.panel-body').scrollTop($('.media-list').height())
