@@ -1,16 +1,12 @@
-import { Template } from 'meteor/templating';
-import './body.html';
-import './message.js';
-import { Messages } from '../api/messages.js';
 
-Template.body.helpers({
+Template.home.helpers({
   messages() {
     Meteor.subscribe('findMessages');
     return Messages.find();
   },
 });
 
-Template.body.events({
+Template.home.events({
   'submit .new-message'(event) {
     // Prevent default browser form submit
     event.preventDefault();
