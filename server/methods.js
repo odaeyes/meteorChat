@@ -1,4 +1,4 @@
-import { Messages } from '../lib/collections/messages.js'
+
 
 Meteor.methods({
     sendMessage: function (messageText) {
