@@ -10,7 +10,12 @@
           <br />
           <!-- user information -->
           <small class="text-muted"><strong>{{username}}</strong> | {{createdAt}}</small>
+          <br />
+          {{#if isEqual currentUser._id owner }}
+          <button class="btn btn-danger delete" type="submit">Delete</button>
+          {{/if}}
           <hr />
+         
         </div>
       </div>
     </div>

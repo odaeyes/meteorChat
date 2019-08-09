@@ -10,5 +10,16 @@ Meteor.methods({
         owner: Meteor.userId(),
         username: Meteor.user().username,
       });
+    },
+    delMessage: function(delId)  {
+      var delMessage = Messages.findOne(delId);
+      var currentUser = Meteor.userId();
+      // console.log('method', delMessage);
+      if(currentUser != delMessage.owner){
+        throw new Meteor.Error("invalid-user", "You are not the owner of this message")
+      }
+      Messages.remove({
+        _id:  delId
+      })
     }
   });
