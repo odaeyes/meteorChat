@@ -24,8 +24,9 @@ Meteor.startup(() => {
   // }
 });
 Meteor.publish('findMessages',(channel)=>{
+  if(channel){
   return Messages.find({channel:channel});
-})
+}})
 /* Messages.allow({
   insert: function(userId, doc){
     return true;

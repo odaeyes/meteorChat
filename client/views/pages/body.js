@@ -4,9 +4,10 @@ Meteor.startup(() => {
 });
 Template.home.helpers({
   messages() {
+    if(Session.get('channel')){
     Meteor.subscribe('findMessages', Session.get('channel'));
     return Messages.find({channel:Session.get('channel')});
-  },
+  }},
   userState(){
     Meteor.subscribe('userStatus');
     return Meteor.users.find({ "status.online": true });
