@@ -1,7 +1,7 @@
 
 
 Meteor.methods({
-    sendMessage: function (messageText) {
+    sendMessage: function (messageText, channel) {
       /* add authentication here */
   
       Messages.insert({
@@ -9,6 +9,7 @@ Meteor.methods({
         createdAt: new Date(),
         owner: Meteor.userId(),
         username: Meteor.user().username,
+        channel: channel
       });
     },
     delMessage: function(delId)  {

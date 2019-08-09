@@ -12,6 +12,13 @@
               <div class="panel-heading">
                 GROUP CHAT
               </div>
+              <div>
+                {{#each channels}}
+                  <button class="channel btn {{active}}">
+                    # {{name}}
+                  </button>
+                {{/each}}
+                </div>
               <div class="panel-body">
                 <ul class="media-list">
                   <!-- message template -->
