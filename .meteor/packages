@@ -25,3 +25,4 @@ accounts-google
 accounts-github
 iron:router
 google-config-ui
+mizzao:user-status

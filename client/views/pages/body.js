@@ -4,6 +4,10 @@ Template.home.helpers({
     Meteor.subscribe('findMessages');
     return Messages.find();
   },
+  userState(){
+    Meteor.subscribe('userStatus');
+    return Meteor.users.find({ "status.online": true });
+  },
 });
 
 Template.home.events({
@@ -43,3 +47,4 @@ Template.message.events({
     Meteor.call("delMessage", delId);
   }
 })
+

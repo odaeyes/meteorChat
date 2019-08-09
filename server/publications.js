@@ -10,3 +10,6 @@ Meteor.publish('findMessages',()=>{
     return true;
   }
 }) */
+Meteor.publish("userStatus", function() {
+  return Meteor.users.find({ "status.online": true });
+});

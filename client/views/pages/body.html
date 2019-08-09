@@ -20,7 +20,11 @@
                   {{/each}}
                 </ul>
               </div>
+              {{#each userState}}
+              <span class="label label-success">{{username}}</span>
+              {{/each}}
               {{#if currentUser}}
+              
               <!-- message textbox -->
               <form class="new-message">
                 <div class="panel-footer">
