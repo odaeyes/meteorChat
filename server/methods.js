@@ -34,7 +34,15 @@ Meteor.methods({
 
       })
     },
-    updatePost: function(postId)  {
-      
+    updatePost: function(postData)  {
+      Posts.update({
+        _id:    postData._id
+      },{
+        $set:   {
+          title:    postData.title,
+          texte:    postData.texte,
+          editedAt: new Date()
+        }
+      })
     }
 });
