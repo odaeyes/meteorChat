@@ -35,6 +35,9 @@ Meteor.publish('findMessages',(channel)=>{
 Meteor.publish("userStatus", function() {
   return Meteor.users.find({ "status.online": true });
 });
-Meteor.publish('channels', function () {
+Meteor.publish('channels', function() {
   return Channels.find();
+});
+Meteor.publish('findPosts', function() {
+  return Posts.find();
 });

@@ -1,0 +1,17 @@
+<template name="blog">
+    <section>
+        {{#each post}}
+            <article>
+                <h3>{{title}}</h3>
+            </article>
+            <p>{{texte}}</p>
+            {{#if isEqual currentUser._id owner}}
+                <button>Delete </button>
+                <button>Edit</button>
+            {{/if}}
+        {{/each}}
+        {{#if currentUser}}
+            {{> blogCreate }}
+        {{/if}}
+    </section>
+</template>

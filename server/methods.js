@@ -5,11 +5,11 @@ Meteor.methods({
       /* add authentication here */
   
       Messages.insert({
-        text: messageText,
-        createdAt: new Date(),
-        owner: Meteor.userId(),
-        username: Meteor.user().username,
-        channel: channel
+        text:       messageText,
+        createdAt:  new Date(),
+        owner:      Meteor.userId(),
+        username:   Meteor.user().username,
+        channel:    channel
       });
     },
     delMessage: function(delId)  {
@@ -22,5 +22,19 @@ Meteor.methods({
       Messages.remove({
         _id:  delId
       })
+    },
+    createPost: function(postData)  {
+      Posts.insert({
+        title:      postData.title,
+        texte:      postData.text,
+        createdAt:  new Date(),
+        owner:      Meteor.userId(),
+        creator:    Meteor.user().username,
+
+
+      })
+    },
+    updatePost: function(postId)  {
+      
     }
-  });
+});

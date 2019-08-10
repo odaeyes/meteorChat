@@ -27,3 +27,5 @@ iron:router
 google-config-ui
 mizzao:user-status
 session
+flawless:meteor-toastr
+alanning:roles
