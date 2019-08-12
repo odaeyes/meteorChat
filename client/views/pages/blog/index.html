@@ -1,19 +1,20 @@
 <template name="blog">
     <section class="container">
         <div class="col-md-12">
+			{{#if currentUser}}
+                {{> blogCreate }}
+            {{/if}}
+
             {{#each posts}}
                 <article>
-                    <h3>{{title}}titre</h3>
+                    <h3>{{title}}</h3>
                     <p>{{texte}}</p>
                     {{#if isEqual currentUser._id owner}}
-                        <button>Delete </button>
-                        <button>Edit</button>
+                        <button class="btn btn-danger delete">Delete</button>
+                        <a href="blog/update/{{_id}}" class="btn btn-success blogEdit">Edit</a>
                     {{/if}}
                 </article>
             {{/each}}
-            {{#if currentUser}}
-                {{> blogCreate }}
-            {{/if}}
         </div>
     </section>
 </template>

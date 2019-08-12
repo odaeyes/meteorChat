@@ -1,7 +1,9 @@
 <template name="blogCreate">
-    <form action="blog/create">
-        <input type="text" placeholder="Post title" name="title" />
-        <textarea name="texte" id="textArea"></textarea>
-        <button type="submit" class="new-post">Send</button>
+    <form action="blog/create" class="new-post">
+        <input type="text" placeholder="Post title" name="title" class="form-control" />
+		<br />
+        <textarea name="texte" id="textArea" class="form-control" placeholder="tapez votre texte ici"></textarea>
+		<br />
+        <button type="submit" class="btn btn-info send">Send</button>
     </form>
 </template>
