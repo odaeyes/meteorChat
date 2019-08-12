@@ -23,7 +23,7 @@ Meteor.methods({
         _id:  delId
       })
     },
-    createPost: function(postData)  {
+    createPost: function({postData})  {
       Posts.insert({
         title:      postData.title,
         texte:      postData.text,
@@ -34,7 +34,7 @@ Meteor.methods({
 
       })
     },
-    updatePost: function(postData)  {
+    updatePost: function({postData})  {
       Posts.update({
         _id:    postData._id
       },{
