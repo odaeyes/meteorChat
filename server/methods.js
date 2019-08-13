@@ -71,9 +71,13 @@ Meteor.methods({
 			return { type: "error", message: "Problème lors de la suppression du message" };
     },
 
-	addRole: function(arg) {
+	addRoles: function(arg) {
+		let addedRoles = Roles.addUsersToRoles(arg.userId, arg.role, 'default');
+		console.log(addedRoles);
+	},
 
-
-		Roles.addUsersToRoles(arg.userId, [arg.role], 'default')
+	removeRoles: function(arg) {
+		let removedRoles = Users.update({_id: arg.userId}, {$pull: {"roles.default": arg.role}});
+		console.log(removedRoles);
 	}
 });
