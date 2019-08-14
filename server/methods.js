@@ -72,12 +72,23 @@ Meteor.methods({
     },
 
 	addRoles: function(arg) {
-		let addedRoles = Roles.addUsersToRoles(arg.userId, arg.role, 'default');
+
+		if(arg.roles == null){
+			arg.roles = [];
+		}
+		console.log(arg);
+
+		let addedRoles = Users.update({ _id: arg.id }, { $set: { 'roles.default': arg.roles } });
+
 		console.log(addedRoles);
+		if(addedRoles > 0)
+			return { type: "success", message: "La mise à jour a été faite" };
+		else
+			return { type: "error", message: "Problème lors de la mise à jour des rôles" };
 	},
 
 	removeRoles: function(arg) {
-		let removedRoles = Users.update({_id: arg.userId}, {$pull: {"roles.default": arg.role}});
+		let removedRoles = Users.update({_id: arg.id}, { $pull: { "roles.default": arg.role }});
 		console.log(removedRoles);
 	}
 });

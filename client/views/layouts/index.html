@@ -1,5 +1,9 @@
 <template name="layout">
+
 	<div class="container">
+		<header>
+			{{> yield "header"}}
+		</header>
 		<nav>
 			<ul class="nav nav-tabs">
 				<li class="nav-item"><a href="http://localhost:3000" class="nav-link">Home</a></li>

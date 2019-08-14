@@ -1,20 +1,14 @@
 <template name="user">
 	<h3>{{user.username}} profile</h3>
-	<span>{{user.roles.default}}</span>
+	{{#if isInRole "admin"}}
 	<form class="add-roles">
 		<select name="roles" multiple class="custom-select" id="roles">
-			{{#if isInRole "user"}}
-				<option value="user" selected>user</option>
-			{{else}}
-				<option value="user">user</option>
-			{{/if}}
-			{{#if isInRole "admin"}}
-				<option value="admin" selected>admin</option>
-			{{else}}
-				<option value="admin" >admin</option>
-			{{/if}}
+			<option value="user"  {{selectedIfIsInRole user._id "user"}}>user</option>
+			<option value="admin" {{selectedIfIsInRole user._id "admin"}}>admin</option>
 		</select>
-		<button name="delete" class="btn btn-danger delete">delete</button>
-		<input type="submit"  value="add role" class="btn btn-info" />
+		<p>
+		<button type="submit" class="btn btn-danger">Changer les rôles de {{user.username}}</button>
+		</p>
 	</form>
+	{{/if}}
 </template>
