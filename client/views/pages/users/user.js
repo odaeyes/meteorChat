@@ -28,7 +28,6 @@ Template.user.events({
 					toastr.error(result.type, result.message);
 				}
 			}
-
 		});
 		return false;
 	}

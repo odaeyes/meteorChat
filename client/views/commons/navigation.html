@@ -1,7 +1,7 @@
 <template name="navigation">
 	<ul class="nav nav-tabs">
-		<li class="nav-item"><a href="http://localhost:3000" class="nav-link">Home</a></li>
-		<li class="nav-item"><a href="http://localhost:3000/blog" class="nav-link">Blog</a></li>
-		<li class="nav-item"><a href="http://localhost:3000/users" class="nav-link">Membres</a></li>
+		{{#each navigations}}
+			<li><a href="{{url}}">{{name}}</a></li>
+		{{/each}}
 	</ul>
 </template>

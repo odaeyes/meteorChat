@@ -1,8 +1,19 @@
+Template.blog.onCreated(function(){
+	Session.set('edit', null);
+	Session.set("creating", false);
+});
+
 Template.blog.helpers({
     posts() {
         Meteor.subscribe('findPosts');
         return Posts.find();
-    }
+    },
+	isEdit(){
+		return Session.get("edit");
+	},
+	isCreating(){
+		return Session.get("creating");
+	}
 })
 
 Template.blog.events({
@@ -31,7 +42,19 @@ Template.blog.events({
         var delId = selectedPost._id;
         Meteor.call("delPost", delId);*/
     },
-	
+
+	'click .blogEdit': function(event) {
+		Session.set('edit', this);
+		console.log(this);
+		return false;
+	},
+	'click .addBlog': function(event) {
+		Session.set("creating", !Session.get("creating"));
+		console.log(Session.get("creating"));
+		return false;
+
+	}
+
 });
 // Template.blog.events({
 // 	'click .blogEdit' (event, blog)	{

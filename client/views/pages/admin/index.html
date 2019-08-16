@@ -1,0 +1,15 @@
+<template name="admin">
+	{{#if isInRole "admin"}}
+		<section>
+			<h2>Administration</h2>
+			<p>Bienvenue dans le panel d'Administration</p>
+		</section>
+		<nav>
+			<ul>
+				<li><a href="{{ pathFor 'blog' }}">Ajouter un blog</a></li>
+				<li><a href="{{ pathFor 'users' }}">Liste des utilisateurs</a></li>
+
+			</ul>
+		</nav>
+	{{/if}}
+</template>

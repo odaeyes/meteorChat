@@ -33,23 +33,25 @@ Meteor.methods({
         texte: texte,
         createdAt: new Date(),
         owner: Meteor.userId(),
-        creator: Meteor.user().username,
-
-
+        creator: Meteor.user().username
       })
     },
 
-    updatePost: function(title, texte, id) {
-      Posts.update({
-        _id: id
+    updatePost: function(arg) {
+      var upPost = Posts.update({
+        _id: arg.id
       },{
         $set: {
-          title: title,
-          texte: texte,
+          title: arg.title,
+          texte: arg.texte,
           editedAt: new Date(),
 		  editedBy: Meteor.userId(),
         }
       })
+	  if(upPost > 0)
+		  return { type: "success", message: "Le post a été édité" };
+	  else
+		  return { type: "error", message: "Problème lors de la maj du post" };
   	},
 
 	delPost: function(arg) {
@@ -90,5 +92,6 @@ Meteor.methods({
 	removeRoles: function(arg) {
 		let removedRoles = Users.update({_id: arg.id}, { $pull: { "roles.default": arg.role }});
 		console.log(removedRoles);
-	}
+	},
+
 });

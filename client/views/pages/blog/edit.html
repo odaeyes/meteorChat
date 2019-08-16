@@ -1,8 +1,8 @@
 <template name="blogEdit">
-    <form class="edit-post" action="http://localhost:3000/blog">
-		<input type="hidden" name="id" value="{{_id}}" />
-        <input type="text" name="title" placeholder="{{title}}" class="form-control"  />
-        <textarea name="texte" id="textEdit" placeholder="{{texte}}" class="form-control"></textarea>
+    <form class="edit-post">
+		<input type="hidden" name="id" value="{{edit._id}}" />
+        <input type="text" name="title" placeholder="{{edit.title}}" class="form-control"  />
+        <textarea name="texte" id="textEdit" placeholder="{{edit.texte}}" class="form-control"></textarea>
 		<button type="submit" class="btn btn-info send">Send</button>
     </form>
 </template>

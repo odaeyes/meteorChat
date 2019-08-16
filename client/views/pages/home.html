@@ -5,9 +5,9 @@
           <header>
               <h3 class="text-center" >My simple chat in MeteorJS</h3>
               <h5 class="text-center text-muted">Sign in to join!</h5>
-          </header>      
+          </header>
           <div class="col-md-12">
-            {{> loginButtons}}
+            <a href="{{ pathFor "login" }}" class="btn btn-info"> login</a>
             <div class="panel panel-info">
               <div class="panel-heading">
                 GROUP CHAT
@@ -20,18 +20,23 @@
                 {{/each}}
                 </div>
               <div class="panel-body">
-                <ul class="media-list">
+                <ul class="media-list col-sm-11">
                   <!-- message template -->
                   {{#each messages}}
                     {{> message}}
                   {{/each}}
                 </ul>
+				<div class="col-sm-1">
+  				  {{#each userState}}
+  					  <img class="media-object img-circle img-responsive pull-left" src="http://lorempixel.com/60/60/people/" /><small class="green" style="height:60px;"><strong>{{username}}</strong></small>
+  				  {{/each}}
+  			  </div>
               </div>
-              {{#each userState}}
-              <span class="label label-success">{{username}}</span>
-              {{/each}}
+
+
+
               {{#if currentUser}}
-              
+
               <!-- message textbox -->
               <form class="new-message">
                 <div class="panel-footer">
@@ -49,4 +54,3 @@
         </div>
       </main>
 </template>
-     

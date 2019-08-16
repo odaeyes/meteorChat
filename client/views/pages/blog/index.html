@@ -2,16 +2,22 @@
     <section class="container">
         <div class="col-md-12">
 			{{#if currentUser}}
-                {{> blogCreate }}
+				<button class='btn btn-info addBlog'>Ajouter un blog</button>
+				{{#if isCreating}}
+		            {{> blogCreate }}
+				{{/if}}
+				{{#if isEdit}}
+					{{> blogEdit }}
+				{{/if}}
             {{/if}}
 
             {{#each posts}}
                 <article>
                     <h3>{{title}}</h3>
                     <p>{{texte}}</p>
-                    {{#if isEqual currentUser._id owner}}
+                    {{#if canEdit owner "admin"}}
                         <button class="btn btn-danger delete">Delete</button>
-                        <a href="blog/update/{{_id}}" class="btn btn-success blogEdit">Edit</a>
+                        <button class="btn btn-success blogEdit">Edit</button>
                     {{/if}}
                 </article>
             {{/each}}
