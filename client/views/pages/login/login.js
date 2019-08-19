@@ -1,5 +1,6 @@
 Template.login.events({
 	"submit .login-form": function(event, template){
+		event.preventDefault();
 		Meteor.loginWithPassword(event.target.login.value,event.target.password.value);
 		 // Meteor.call("connection", options, function(error, result) {
 			//  if(error) {
@@ -14,5 +15,9 @@ Template.login.events({
 			// 	 }
 			//  }
 		 // });
+	},
+	"click .disconnect": function(event, t) {
+		event.preventDefault();
+		Meteor.logout();
 	}
 });

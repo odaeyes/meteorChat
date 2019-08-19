@@ -1,25 +1,31 @@
 <template name="login">
-	<div class="wrapper fadeInDown">
-	  <div id="formContent">
-	    <!-- Tabs Titles -->
+	{{#if currentUser }}
+	<br>
+	<a href="#" class="btn btn-danger disconnect">Disconnect</a>
+	<a href="http://localhost:3000/" class="btn btn-info">Go back to Home</a>
+	{{else}}
+		<div class="wrapper fadeInDown">
+		  <div id="formContent">
+		    <!-- Tabs Titles -->
 
-	    <!-- Icon -->
-	    <div class="fadeIn first">
-	      <img src="https://upload.wikimedia.org/wikipedia/en/c/ce/Google_account_icon.svg" id="icon" alt="User Icon" />
-	    </div>
+		    <!-- Icon -->
+		    <div class="fadeIn first">
+		      <img src="https://upload.wikimedia.org/wikipedia/en/c/ce/Google_account_icon.svg" id="icon" alt="User Icon" />
+		    </div>
 
-	    <!-- Login Form -->
-	    <form class="login-form">
-	      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-	      <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
-	      <input type="submit" class="fadeIn fourth" value="Log In">
-	    </form>
+		    <!-- Login Form -->
+		    <form class="login-form" action="http://localhost:3000/">
+		      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+		      <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
+		      <input type="submit" class="fadeIn fourth" value="Log In">
+		    </form>
 
-	    <!-- Remind Password -->
-	    <div id="formFooter">
-	      <button class="underlineHover btn create">Create account</button>
-	    </div>
+		    <!-- New account -->
+		    <div id="formFooter">
+		      <button class="underlineHover btn create">Create account</button>
+		    </div>
 
-	  </div>
-	</div>
+		  </div>
+		</div>
+	{{/if}}
 </template>

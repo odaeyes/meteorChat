@@ -10,7 +10,11 @@
 				<li class="nav-item"><a href="{{ pathFor 'blog' }}" class="nav-link">Blog</a></li>
 				<li class="nav-item"><a href="{{ pathFor 'users' }}" class="nav-link">Membres</a></li>
 				<li><a href="{{ pathFor 'admin' }}">Admin</a></li>
+				{{#if currentUser}}
+				<li><a href="#" id="logout">Log out</a></li>
+				{{else}}
 				<li class="nav-item"><a href="{{ pathFor 'login' }}" class="nav-link">Sign in</a></li>
+				{{/if}}
 			</ul>
 		</nav>
 		 {{> yield}}
