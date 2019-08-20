@@ -1,7 +1,19 @@
 <template name="navigation">
 	<ul class="nav nav-tabs">
+		<li class="nav-item"><a href="http://localhost:3000" class="nav-link">Home</a></li>
+		<li class="nav-item"><a href="{{ pathFor 'blog' }}" class="nav-link">Blog</a></li>
+		<li class="nav-item"><a href="{{ pathFor 'users' }}" class="nav-link">Membres</a></li>
+		<li><a href="{{ pathFor 'admin' }}">Admin</a></li>
+		<!-- {{#if currentUser}}
+		<li><a href="#" id="logout">Log out</a></li>
+		{{else}}
+		<li class="nav-item"><a href="{{ pathFor 'login' }}" class="nav-link">Sign in</a></li>
+		{{/if}} -->
+		{{> atNavButton}}
+	</ul>
+	<!-- <ul class="nav nav-tabs">
 		{{#each navigations}}
 			<li><a href="{{url}}">{{name}}</a></li>
 		{{/each}}
-	</ul>
+	</ul> -->
 </template>

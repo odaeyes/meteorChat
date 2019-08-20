@@ -58,3 +58,6 @@ Meteor.publish("findUsers", function(){
 Meteor.publish("findOneUser", function(id){
 	return Users.find({_id:id});
 });
+Meteor.publish("findNavs", function(){
+	return Navigations.find();
+});
